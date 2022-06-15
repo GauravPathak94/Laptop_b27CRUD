@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>SHOW LAPTOPS</title>
+{% endblock %}
+
+{% block content %}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">LAPTOP ID</th>
+      <th scope="col">NAME</th>
+      <th scope="col">BRAND</th>
+      <th scope="col">RAM</th>
+      <th scope="col">ROM</th>
+      <th scope="col">PROCESSOR</th>
+      <th scope="col">PRICE</th>
+      <th scope="col">COLOR</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in obj %}
+    <tr>
+      <th>{{i.laptop_id}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.brand}}</td>
+      <td>{{i.ram}}</td>
+      <td>{{i.rom}}</td>
+      <td>{{i.processor}}</td>
+      <td>{{i.price}}</td>
+      <td>{{i.color}}</td>
+      <td><button class="btn btn-warning"><a href="{% url 'updatelap_url' i.id %}">UPDATE</a></button></td>
+      <td><button class="btn btn-danger"><a  href="{% url 'deletelap_url' i.id %}">DELETE</a></button></td>
+
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
